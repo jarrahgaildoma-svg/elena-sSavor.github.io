@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us & Order | Elena's Savor</title>
+    
+    <link rel="stylesheet" href="T2.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        /* ------------------------------------------- */
+        /* 1. ROOT VARIABLES (Establish Branding Colors and Fonts) */
+        /* ------------------------------------------- */
+        :root {
+            --primary-color: #8b0000; /* Unified with T2.css */
+            --secondary-color: #f7c59f; /* Peach/Light Orange - Accent for highlights */
+            --hero-bg-color: #5e0000; /* Dark Red - Unified with T2.css */
+            --text-color-dark: #333;
+            --text-color-light: #555;
+            --bg-light: #f9f9f9;
+            --font-heading: 'Georgia', serif; 
+            --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        }
+
+        /* ------------------------------------------- */
+        /* 2. GLOBAL/UTILITY STYLES */
+        /* ------------------------------------------- */
+
+        body {
+            font-family: var(--font-body);
+            line-height: 1.6;
+            margin: 0;
+            padding-top: 70px;
+            background-color: var(--bg-light);
+            color: var(--text-color-light);
+        }
+
+        .contact-main {
+            min-height: calc(100vh - 70px);
+        }
+
+        .section {
+            padding: 60px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .heading-primary {
+            font-family: var(--font-heading);
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 50px;
+            color: var(--hero-bg-color);
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        /* Decorative underline for the primary heading */
+        .heading-primary::after {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 50px;
+            background-color: var(--primary-red); 
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); 
+            position: fixed; 
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+        }
+
+        /* Reusable Button Style (for form submission) */
+        .btn {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 30px; /* Pill shape for a modern look */
+            text-decoration: none;
+            font-size: 1.05rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.2s;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            align-self: flex-start; /* Aligns the button to the left in the form */
+        }
+
+        .btn:hover {
+            background-color: var(--hero-bg-color); 
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+
+        /* ------------------------------------------- */
+        /* 3. CONTACT SECTION LAYOUT & BOXES */
+        /* ------------------------------------------- */
+
+        .contact-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px; /* Standard professional spacing */
+            justify-content: center;
+        }
+
+        .contact-box { 
+            flex: 1 1 45%; /* Optimal layout for two columns */
+            min-width: 300px; /* Ensures it works on smaller devices before stacking */
+            padding: 30px;
+            background: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08); /* More refined shadow */
+            border-left: 5px solid var(--primary-color); /* Signature color accent */
+        }
+
+        .contact-box h3 {
+            color: var(--primary-color);
+            font-size: 1.6rem;
+            margin-top: 0;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        /* ------------------------------------------- */
+        /* 4. CONTACT INFO BOX SPECIFIC STYLES */
+        /* ------------------------------------------- */
+
+        .contact-info p {
+            margin-bottom: 18px;
+            display: flex;
+            align-items: center;
+            font-size: 1.05rem;
+            color: var(--text-color-dark);
+        }
+        .contact-info i {
+            color: var(--primary-color); 
+            font-size: 1.2rem;
+            margin-right: 12px;
+        }
+
+        .contact-info a {
+            color: var(--text-color-dark);
+        }
+        /* Social Media Icons */
+        .social-links {
+            margin-top: 30px;
+            padding-top: 15px;
+            border-top: 1px solid #ddd;
+        }
+        .social-links a {
+            font-size: 2.2rem;
+            color: var(--primary-color);
+            margin-right: 20px;
+            transition: color 0.3s;
+        }
+        .social-links a:hover {
+            color: var(--hero-bg-color);
+            transform: scale(1.1);
+        }
+
+        /* Map Container */
+        .map-container {
+            margin-top: 25px;
+            border-radius: 8px;
+            overflow: hidden; 
+            border: 4px solid var(--secondary-color);
+        }
+
+        /* ------------------------------------------- */
+        /* 5. CONTACT FORM SPECIFIC STYLES */
+        /* ------------------------------------------- */
+
+        .contact-form form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .contact-form input,
+        .contact-form select,
+        .contact-form textarea {
+            width: 100%;
+            padding: 14px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            box-sizing: border-box;
+            font-size: 1em;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+
+        /* Focus state for professional interaction */
+        .contact-form input:focus,
+        .contact-form select:focus,
+        .contact-form textarea:focus {
+            border-color: var(--primary-color);
+            outline: none;
+            box-shadow: 0 0 8px rgba(214, 77, 80, 0.2); 
+        }
+
+        .contact-form textarea {
+            resize: vertical;
+        }
+
+        .contact-form select {
+            /* Custom styling for select dropdowns for a professional look */
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23333%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13%205.6L146.2%20202.7%2018.4%2075a17.6%2017.6%200%200%200-25.2%2024.8l130.4%20128.7a17.6%2017.6%200%200%200%2025.2%200l130.4-128.7a17.6%2017.6%200%200%200%200-24.8z%22%2F%3E%3C%2Fsvg%3E');
+            background-repeat: no-repeat;
+            background-position: right 15px center;
+            background-size: 10px;
+            padding-right: 30px;
+        }
+       
+
+
+        /* ------------------------------------------- */
+        /* 6. FOOTER STYLES */
+        /* ------------------------------------------- */
+        /* Footer styling is handled by T2.css */.btn-form {
+            width: 100%;
+        }
+
+        /* ------------------------------------------- */
+        /* 7. MEDIA QUERIES FOR RESPONSIVENESS */
+        /* ------------------------------------------- */
+        @media (max-width: 850px) {
+            /* Stacks the two contact boxes vertically on tablets/phones */
+            .contact-container { 
+                flex-direction: column;
+                gap: 30px; 
+            }
+            .contact-box { 
+                flex: 1 1 100%; /* Take full width */
+                min-width: unset; 
+            }
+            .heading-primary {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .section {
+                padding: 40px 15px;
+            }
+            .contact-box {
+                padding: 20px;
+            }
+            .btn {
+                padding: 10px 20px;
+            }
+        }
+         .admin-login-btn {
+         background: transparent;
+         }
+
+    </style>
+</head>
+<body>
+
+  <header class="main-header">
+    <div class="logo">
+      <img src="logo.png" alt="Elena's Savor Logo" class="header-logo">
+    </div>
+    <nav class="main-nav">
+      <ul>
+        <li><a href="home.html">HOME</a></li>
+        <li><a href="T3.html">MENU</a></li>
+        <li><a href="about.html">ABOUT</a></li>
+        <li><a href="Contact.html" class="active">CONTACTS</a></li>
+      </ul>
+    </nav>
+    <button id="admin-login-btn" class="admin-login-btn"></button>
+  </header>
+    <main class="contact-main">
+    <section id="contact" class="section">
+        <h2 class="heading-primary">Contact Us</h2>
+        <div class="contact-container">
+            
+            <div class="contact-box contact-info">
+                <h3>Our Details</h3>
+                
+                <p><i class="fas fa-map-marker-alt"></i> <strong>Address:</strong> Zabala Street, Purok 1, Barangay IV, Daet, Camarines Norte</p>
+                <p><i class="fas fa-phone"></i> <strong>Phone:</strong> <a href="tel:+639758924756">0975-892-4756</a></p>
+                <p><i class="fas fa-envelope"></i> <strong>Email:</strong> <a href="mailto:elenassavor@gmail.com">elenassavor@gmail.com</a></p>
+                <p><i class="fas fa-clock"></i> <strong>Hours:</strong> Open Daily (9:00 AM - 8:00 PM)</p>
+
+                <div class="social-links">
+                    <h3>Connect With Us</h3>
+                    
+                    <a href="https://www.facebook.com/elenassavor" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-square"></i></a>
+                    
+                    <a href="https://www.instagram.com/elenassavor/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    
+                    </div>
+
+                <div class="map-container">
+                    <iframe 
+                        src="https://maps.google.com/maps?q=Elena's+Savor+Zabala+Street,+Purok+1,+Barangay+IV,+Daet,+Camarines+Norte&t=&z=15&ie=UTF8&iwloc=&output=embed" 
+                        width="100%" 
+                        height="300" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade"
+                        title="Location Map of Elena’s Savor - Zabala Street, Daet">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Elena's Savor Online Ordering Website</p>
+    </footer>
+
+    <script src="T1.js" crossorigin="anonymous"></script>
+</body>
+</html>

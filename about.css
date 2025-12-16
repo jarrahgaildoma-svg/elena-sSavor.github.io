@@ -1,0 +1,129 @@
+:root {
+  --main-red: #b84a4a; 
+  --dark-red: #7b1f1f; 
+  --white: #ffffff;
+  --gold-accent: #ffc107; 
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(to right, var(--main-red), var(--dark-red));
+  color: var(--white);
+  line-height: 1.6;
+}
+
+.page-content {
+  animation: fadeIn 0.8s ease-in;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.header {
+  display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 50px;
+    background-color: var(--primary-red); 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); 
+    position: fixed; 
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 800;
+}
+
+.nav a {
+  color: var(--white); 
+  text-decoration: none;
+  margin-left: 20px;
+  font-weight: 600;
+  text-transform: uppercase;
+  transition: all 0.3s;
+  padding: 10px 0; 
+}
+
+.nav a.active {
+  border-bottom: 2px solid var(--gold-accent); 
+  color: var(--gold-accent);
+}
+
+.about-page-layout {
+  display: flex; 
+  flex-direction: column; 
+  align-items: center; 
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 0 20px;
+  gap: 30px; 
+}
+
+.about-box, .backstory-box, .gallery-box {
+  background: rgba(255, 255, 255, 0.95);
+  color: #333;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+  text-align: center;
+  width: 100%; 
+}
+
+h3 {
+  color: var(--dark-red);
+  margin-top: 0;
+}
+
+.backstory-box h3 {
+    border-bottom: 2px solid var(--main-red);
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.backstory-box p {
+    font-size: 1em;
+    text-align: justify; 
+}
+
+.image-gallery {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap; 
+}
+
+.image-placeholder {
+  margin: 10px;
+  text-align: center;
+}
+
+.image-placeholder img {
+  width: 250px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 4px solid var(--main-red);
+}
+
+figcaption {
+  margin-top: 8px;
+  font-weight: bold;
+}
+
+.admin-login-btn {
+  background: transparent;
+}
+
